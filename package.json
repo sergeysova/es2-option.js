@@ -1,6 +1,6 @@
 {
   "name": "@es2/option",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Your Maybe class",
   "main": "lib/index.js",
   "publishConfig": {
