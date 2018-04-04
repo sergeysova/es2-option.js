@@ -160,7 +160,7 @@ test('orElse :: Option f => f a ~> (() -> f a) -> f a', (t) => {
   const nobody = () => None()
   const vikings = () => Some('vikings')
 
-  t.is(Some('barbarians').okOrElse(vikings).unwrap(), 'barbarians')
+  t.is(Some('barbarians').orElse(vikings).unwrap(), 'barbarians')
   t.is(None().orElse(vikings).unwrap(), 'vikings')
   t.true(None().orElse(nobody).isNone())
 })
