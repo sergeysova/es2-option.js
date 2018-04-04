@@ -1,0 +1,44 @@
+{
+  "name": "@es2/option",
+  "version": "0.1.0",
+  "description": "Your Maybe class",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "typings": "./index.d.ts",
+  "scripts": {
+    "test": "eslint . && nyc ava",
+    "coverage": "NODE_ENV=test nyc report --reporter=text-lcov",
+    "report": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "author": "Sergey Sova <mail@sergeysova.com> (https://sergeysova.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@atomix/eslint-config": "^6.3.0",
+    "@es2/result": "^0.7.2",
+    "ava": "^0.25.0",
+    "babel-eslint": "^8.2.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.19.1",
+    "flow-bin": "^0.69.0",
+    "nyc": "^11.6.0",
+    "typescript": "^2.8.1"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "optionalDependencies": {
+    "@es2/result": "0.*"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeysova/es2-option.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sergeysova/es2-option.js/issues"
+  },
+  "homepage": "https://github.com/sergeysova/es2-option.js#readme"
+}
