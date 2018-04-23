@@ -34,13 +34,20 @@ export type NoneConstructor = {
   isNone<T, E>(result: Option<T>): boolean,
 }
 
-export type ResultNamespace = {
+export type OptionNamespace = {
   Some: SomeConstructor,
   None: NoneConstructor,
-  of<T>(data: T): Option<T>,
+  isOption: (value: any) => boolean,
+  encase<A, Rs>(fn: (a: A) => Rs): ((a: A) => Option<Rs>),
+  encase<A, B, Rs>(fn: (a: A, b: B) => Rs): ((a: A, b: B) => Option<Rs>),
+  encase<A, B, C, Rs>(fn: (a: A, b: B, c: C) => Rs): ((a: A, b: B, c: C) => Option<Rs>),
+  encase<A, B, C, D, Rs>(fn: (a: A, b: B, c: C, d: D) => Rs): ((a: A, b: B, c: C, d: D) => Option<Rs>),
+  encase<A, B, C, D, E, Rs>(fn: (a: A, b: B, c: C, d: D, e: E) => Rs): ((a: A, b: B, c: C, d: D, e: E) => Option<Rs>),
+  encase<A, B, C, D, E, F, Rs>(fn: (a: A, b: B, c: C, d: D, e: E, f: F) => Rs): ((a: A, b: B, c: C, d: D, e: E, f: F) => Option<Rs>),
+  encase<A, B, C, D, E, F, J, Rs>(fn: (a: A, b: B, c: C, d: D, e: E, f: F, j: J) => Rs): ((a: A, b: B, c: C, d: D, e: E, f: F, j: J) => Option<Rs>),
 }
 
-export const Result: ResultNamespace
+export const Result: OptionNamespace
 export const Some: SomeConstructor
 export const None: NoneConstructor
 

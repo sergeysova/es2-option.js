@@ -164,3 +164,17 @@ test('orElse :: Option f => f a ~> (() -> f a) -> f a', (t) => {
   t.is(None().orElse(vikings).unwrap(), 'vikings')
   t.true(None().orElse(nobody).isNone())
 })
+
+test('encase :: Option f => (r -> a) -> (r -> f a)', (t) => {
+  const f1 = Option.encase(() => 1)
+  const f2 = Option.encase((a) => a + 1)
+  const f3 = Option.encase((...args) => args)
+  const f4 = Option.encase(() => {
+    throw new Error('foo')
+  })
+
+  t.is(f1().unwrap(), 1)
+  t.is(f2(2).unwrap(), 3)
+  t.deepEqual(f3(1, 5, 9, 12).unwrap(), [1, 5, 9, 12])
+  t.true(f4().isNone())
+})
